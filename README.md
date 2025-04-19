@@ -1,5 +1,5 @@
 # Hosting Minecraft server with Docker and Ngrok on Ubuntu PC
-Easy way to host a minecraft server using ngrok and docker on linux pc for free.
+Easy way to host a minecraft server using ngrok and docker on linux pc for free (Java version).
 
 ## Requirements
 - Download [docker](https://docs.docker.com/desktop/setup/install/linux/)
