@@ -21,6 +21,7 @@ Clone this repository by using the command:
 ```
 $ git clone https://github.com/rinta-toyoda/minecraft-server.git
 ```
+on your terminal.
 
 ### Step 2: Adding NGROK_AUTHTOKEN
 From your ngrok account, get NGROK_AUTHTOKEN. Open cloned repository and paste it into .env 's NGROK_AUTHTOKEN after "=".
@@ -59,6 +60,7 @@ All you got to do is run:
 ```
 $ task
 ```
+on your terminal.
 
 ### Step 5: Connect to server!!!
 Go to minecraft multiplayer then type in the address part after tcp.
@@ -73,27 +75,27 @@ Make sure that the version of the minecraft you're playing and the server's mine
 ## Other useful commands:
 - If you want to bring the server down (Server's save data will still persist):
 ```
-task down
+$ task down
 ```
 Don't worry if `task: Failed to run task "down": exit status 1` error occurs
 
 
 - If you want to add whitelist user (add username to where username1 is):
 ```
-task add-whitelist user=username1
+$ task add-whitelist user=username1
 ```
 
 - If you want to remove user from whitlist:
  ```
-task remove-whitelist user=username1
+$ task remove-whitelist user=username1
 ```
 
 - If you want to delete server data:
 ```
-task remove-server
+$ task remove-server
 ```
 
 - If you want to see logs of minecraft server:
 ```
-task logs
+$ task logs
 ```
