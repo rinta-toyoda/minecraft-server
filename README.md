@@ -60,7 +60,7 @@ All you got to do is run:
 task
 ```
 
-### Step 7: Connect to server!!!
+### Step 5: Connect to server!!!
 Go to minecraft multiplayer then type in the address part after tcp.
 eg:
 ```
