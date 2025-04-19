@@ -1,12 +1,15 @@
 services:
   minecraft:
-    image: itzg/minecraft-server
+    build: ./minecraft
     container_name: minecraft-server
     environment:
-      - EULA=TRUE
-      - VERSION=1.21.5  # Specify the Minecraft version here
-      - MEMORY=4G  # Adjust memory allocation if needed
-      - DIFFICULTY=2 # Adjust difficulty 0=Peaceful, 1=Easy, 2=Normal, 3=Hard
+      - EULA=${EULA}
+      - VERSION=${VERSION}
+      - MEMORY=${MEMORY}
+      - DIFFICULTY=${DIFFICULTY}      
+      - ENABLE_WHITELIST=${ENABLE_WHITELIST}
+      - WHITELIST=${WHITELIST}
+      - OPS=${OPS}
     ports:
       - "25565:25565"  # Expose Minecraft server port
     volumes:
@@ -14,9 +17,11 @@ services:
     restart: unless-stopped
 
   ngrok:
-    build: .
+    build: ./ngrok
     container_name: ngrok-connecter
     environment:
-      - NGROK_AUTHTOKEN= #Enter your NGROK_AUTHTOKEN after =
+      - NGROK_AUTHTOKEN=${NGROK_AUTHTOKEN} #Enter your NGROK_AUTHTOKEN
     network_mode: host  # Use the host network for ngrok
+    depends_on: 
+      - minecraft
     restart: unless-stopped

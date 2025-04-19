@@ -1,0 +1,36 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - docker-compose up -d minecraft
+      - docker-compose run --rm ngrok
+  build:
+    cmds:
+      - docker-compose build
+  down:
+    cmds:
+      - docker-compose down
+  stop:
+      - docker stop ngrok
+  add:
+    desc: Add a player to the Minecraft server whitelist
+    params:
+      - name: user
+        desc: The Minecraft username of the player to add
+    cmds:
+      - docker exec -it minecraft-server rcon-cli "whitelist add {{.user}}"
+    silent: true
+  remove:
+    desc: Remove a player to the Minecraft server whitelist
+    params:
+      - name: user
+        desc: The Minecraft username of the player to remove
+    cmds:
+      - docker exec -it minecraft-server rcon-cli "whitelist remove {{.user}}"
+    silent: true
+  logs:
+    cmds:
+      - docker logs -f minecraft-server
