@@ -71,27 +71,29 @@ Make sure that the version of the minecraft you're playing and the server's mine
 
 
 ## Other useful commands:
-If you want to bring the server down (Don't worry if `task: Failed to run task "down": exit status 1` error occurs):
+- If you want to bring the server down (Server's save data will still persist):
 ```
 task down
 ```
+Don't worry if `task: Failed to run task "down": exit status 1` error occurs
 
-If you want to add whitelist user (add username to where username1 is):
+
+- If you want to add whitelist user (add username to where username1 is):
 ```
 task add-whitelist user=username1
 ```
 
-If you want to remove user from whitlist:
+- If you want to remove user from whitlist:
  ```
 task remove-whitelist user=username1
 ```
 
-If you want to delete server data:
+- If you want to delete server data:
 ```
 task remove-server
 ```
 
-If you want to see logs of minecraft server:
+- If you want to see logs of minecraft server:
 ```
 task logs
 ```
