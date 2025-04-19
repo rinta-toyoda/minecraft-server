@@ -1,0 +1,21 @@
+services:
+  minecraft:
+    image: itzg/minecraft-server
+    container_name: minecraft-server
+    environment:
+      - EULA=TRUE
+      - VERSION=1.21.5  # Specify the Minecraft version here
+      - MEMORY=2G  # Adjust memory allocation if needed
+    ports:
+      - "25565:25565"  # Expose Minecraft server port
+    volumes:
+      - ./data:/data  # Persist Minecraft data
+    restart: unless-stopped
+
+  ngrok:
+    build: .
+    container_name: ngrok-connecter
+    environment:
+      - NGROK_AUTHTOKEN= #Enter your NGROK_AUTHTOKEN after =
+    network_mode: host  # Use the host network for ngrok
+    restart: unless-stopped
