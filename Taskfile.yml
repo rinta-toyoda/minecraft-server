@@ -31,4 +31,4 @@ tasks:
       - docker logs -f minecraft-server
   delete-server:
     cmds:
-      - rmdir data
+      - rm -r data
