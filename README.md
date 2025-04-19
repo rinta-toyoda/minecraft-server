@@ -16,19 +16,19 @@ And restart your server.
 
 ## Procedures
 
-## Step 1: Clone this repository
+### Step 1: Clone this repository
 Clone this repository by using the command:
 ```
 git clone https://github.com/rinta-toyoda/minecraft-server.git
 ```
 
-## Step 2: Adding NGROK_AUTHTOKEN
+### Step 2: Adding NGROK_AUTHTOKEN
 From your ngrok account, get NGROK_AUTHTOKEN. Open cloned repository and paste it into .env 's NGROK_AUTHTOKEN after "=".
 ```
 NGROK_AUTHTOKEN=xxxxxxxxxxxxxxx
 ```
 
-## Step 3: Changing server settings (optional)
+### Step 3: Changing server settings (optional)
 If you want to change the minecraft version, memory, and difficulty, simply change .env's below parts:
 ```
 VERSION=1.21.5          # Specify the Minecraft version here
@@ -54,13 +54,13 @@ You can also set admin users by writing usernames after OPS:
 OPS=username1,username2,username3
 ```
 
-## Step 4: Run server
+### Step 4: Run server
 All you got to do is run:
 ```
 task
 ```
 
-## Step 7: Connect to server!!!
+### Step 7: Connect to server!!!
 Go to minecraft multiplayer then type in the address part after tcp.
 eg:
 ```
