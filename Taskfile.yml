@@ -7,15 +7,10 @@ tasks:
     cmds:
       - docker-compose up -d minecraft
       - docker-compose run --rm ngrok
-  build:
-    cmds:
-      - docker-compose build
   down:
     cmds:
-      - docker-compose down
-  stop:
-      - docker stop ngrok
-  add:
+      - docker-compose down && docker stop ngrok
+  add-whitelist:
     desc: Add a player to the Minecraft server whitelist
     params:
       - name: user
@@ -23,7 +18,7 @@ tasks:
     cmds:
       - docker exec -it minecraft-server rcon-cli "whitelist add {{.user}}"
     silent: true
-  remove:
+  remove-whitelist:
     desc: Remove a player to the Minecraft server whitelist
     params:
       - name: user
@@ -34,3 +29,6 @@ tasks:
   logs:
     cmds:
       - docker logs -f minecraft-server
+  delete-server:
+    cmds:
+      - rmdir data

@@ -1,45 +1,97 @@
 # minecraft-server
 Easy way to host a minecraft server using ngrok and docker on linux pc for free.
 
-## Step 1: Downloading Docker
-Download [docker](https://docs.docker.com/desktop/setup/install/linux/)
+## Requirements
+- Download [docker](https://docs.docker.com/desktop/setup/install/linux/)
+- Download [git](https://git-scm.com/downloads/linux)
+- Download [brew](https://brew.sh/)
+- Download [task](https://taskfile.dev/installation/)
+- Make a [ngrok account](https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://dashboard.ngrok.com/signup&ved=2ahUKEwjSmPyv7eOMAxUyR2wGHaw0DEQQFnoECAkQAQ&usg=AOvVaw0Eem619whOco8fyiLYYfC6) and add credit card information (required for using tcp option, but there will be no charges).
 
-## Step 2: Making ngrok account
-Make a [ngrok account](https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://dashboard.ngrok.com/signup&ved=2ahUKEwjSmPyv7eOMAxUyR2wGHaw0DEQQFnoECAkQAQ&usg=AOvVaw0Eem619whOco8fyiLYYfC6) and add credit card information (required for using tcp option, but there will be no charges).
+Make sure after you download docker, you run:
+```
+sudo usermod -aG docker $USER
+```
+And restart your server.
 
-## Step 3: Downloadin git
-Download [git](https://git-scm.com/downloads/linux)
+## Procedures
 
-## Step 4: Clone this repository
+## Step 1: Clone this repository
 Clone this repository by using the command:
 ```
 git clone https://github.com/rinta-toyoda/minecraft-server.git
 ```
 
-## Step 5: Adding NGROK_AUTHTOKEN
-From your ngrok account, copy NGROK_AUTHTOKEN and paste it into docker-compose.yaml 's NGROK_AUTHTOKEN after "=" on your pc (into the cloned repository).
-
-## Step 6: Run server
-Run below 2 commands to run server (if they don't work, add sudo at the front):
-1) Start minecraft server
+## Step 2: Adding NGROK_AUTHTOKEN
+From your ngrok account, get NGROK_AUTHTOKEN. Open cloned repository and paste it into .env 's NGROK_AUTHTOKEN after "=".
 ```
-docker-compose up -d minecraft
+NGROK_AUTHTOKEN=xxxxxxxxxxxxxxx
 ```
 
-2) Make a tunnel with ngrok
+## Step 3: Changing server settings (optional)
+If you want to change the minecraft version, memory, and difficulty, simply change .env's below parts:
 ```
-docker-compose run --rm ngrok
+VERSION=1.21.5          # Specify the Minecraft version here
+MEMORY=4G               # Adjust memory allocation if needed
+DIFFICULTY=2            # Adjust difficulty 0=Peaceful, 1=Easy, 2=Normal, 3=Hard    
 ```
-Server address will be shown like :
+
+If you want to enable whitelist, you can change
 ```
-Forwarding                    tcp://0.tcp.xx.ngrok.xx:xxx -> localhost:25565   
+ENABLE_WHITELIST=false
+```
+to
+```
+ENABLE_WHITELIST=true
+```
+and you can add initial whitelist usernames in below:
+```
+WHITELIST=username1,username2,username3
+```
+
+You can also set admin users by writing usernames after OPS:
+```
+OPS=username1,username2,username3
+```
+
+## Step 4: Run server
+All you got to do is run:
+```
+task
 ```
 
 ## Step 7: Connect to server!!!
 Go to minecraft multiplayer then type in the address part after tcp.
-eg)
+eg:
 ```
 0.tcp.xx.ngrok.xx:xxx
 ```
 
-Make sure that the versions are matching
+Make sure that the version of the minecraft you're playing and the server's minecraft version are matching!
+
+
+## Other useful commands:
+If you want to bring the server down (Don't worry if `task: Failed to run task "down": exit status 1` error occurs):
+```
+task down
+```
+
+If you want to add whitelist user (add username to where username1 is):
+```
+task add-whitelist user=username1
+```
+
+If you want to remove user from whitlist:
+ ```
+task remove-whitelist user=username1
+```
+
+If you want to delete server data:
+```
+task remove-server
+```
+
+If you want to see logs of minecraft server:
+```
+task logs
+```
