@@ -19,7 +19,7 @@ And restart your pc.
 ### Step 1: Clone this repository
 Clone this repository by using the command:
 ```
-git clone https://github.com/rinta-toyoda/minecraft-server.git
+$ git clone https://github.com/rinta-toyoda/minecraft-server.git
 ```
 
 ### Step 2: Adding NGROK_AUTHTOKEN
@@ -57,7 +57,7 @@ OPS=username1,username2,username3
 ### Step 4: Run server
 All you got to do is run:
 ```
-task
+$ task
 ```
 
 ### Step 5: Connect to server!!!
