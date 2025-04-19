@@ -12,7 +12,7 @@ Make sure after you download docker, you run:
 ```
 sudo usermod -aG docker $USER
 ```
-And restart your server.
+And restart your pc.
 
 ## Procedures
 
