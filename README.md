@@ -1,4 +1,4 @@
-# minecraft-server
+# Hosting minecraft server with docker and ngrok
 Easy way to host a minecraft server using ngrok and docker on linux pc for free.
 
 ## Requirements
