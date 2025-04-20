@@ -4,8 +4,8 @@ Easy way to host a minecraft server using ngrok and docker on linux pc for free 
 ## Requirements
 - Download [docker](https://docs.docker.com/desktop/setup/install/linux/)
 - Download [git](https://git-scm.com/downloads/linux)
-- Download [brew](https://brew.sh/)
-- Download [task](https://taskfile.dev/installation/)
+- Download [brew](https://brew.sh/) (Optional)
+- Download [task](https://taskfile.dev/installation/) (Optional)
 - Make a [ngrok account](https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://dashboard.ngrok.com/signup&ved=2ahUKEwjSmPyv7eOMAxUyR2wGHaw0DEQQFnoECAkQAQ&usg=AOvVaw0Eem619whOco8fyiLYYfC6) and add credit card information (required for using tcp option, but there will be no charges).
 
 Make sure after you download docker, you run:
@@ -45,7 +45,7 @@ to
 ```
 ENABLE_WHITELIST=true
 ```
-and you can add initial whitelist usernames in below:
+and you can add initial whitelist usernames like below:
 ```
 WHITELIST=username1,username2,username3
 ```
@@ -61,6 +61,16 @@ All you got to do is run:
 $ task
 ```
 on your terminal.
+
+If you don't have task command, run:
+```
+docker-compose up -d minecraft
+```
+and
+```
+docker-compose run --rm ngrok
+```
+instead.
 
 ### Step 5: Connect to server!!!
 Go to minecraft multiplayer then type in the address part after tcp.
