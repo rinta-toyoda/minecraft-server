@@ -9,7 +9,7 @@ services:
       - DIFFICULTY=${DIFFICULTY}      
       - ENABLE_WHITELIST=${ENABLE_WHITELIST}
       - WHITELIST=${WHITELIST}
-      - OPS=${OPS}
+      # - OPS=${OPS}
     ports:
       - "25565:25565"  # Expose Minecraft server port
     volumes:
