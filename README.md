@@ -50,7 +50,7 @@ and you can add initial whitelist usernames like below:
 WHITELIST=username1,username2,username3
 ```
 
-You can also set admin users by writing usernames after OPS:
+You can also set admin users by writing usernames after OPS (make sure to uncomment it):
 ```
 OPS=username1,username2,username3
 ```
